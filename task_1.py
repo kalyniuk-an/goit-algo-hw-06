@@ -26,8 +26,9 @@ class Record:
         self.phones.append(Phone(phone))
 
     def remove_phone(self, phone):
-        if phone in self.phones:
-            del self.phones[phone]
+        phone_obj = self.find_phone(phone)
+        if phone_obj:
+            self.phones.remove(phone_obj)
 
     def edit_phone(self, old_phone, new_phone):
         phone_old = self.find_phone(old_phone)
